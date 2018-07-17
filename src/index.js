@@ -1,7 +1,7 @@
-import { dirname } from 'path'
-import defaultsDeep from 'lodash.defaultsdeep'
-import { createFilter } from 'rollup-pluginutils'
-import { ResolverFactory, NodeJsInputFileSystem } from 'enhanced-resolve'
+const { dirname } = require('path')
+const defaultsDeep = require('lodash.defaultsdeep')
+const { createFilter } = require('rollup-pluginutils')
+const { ResolverFactory, NodeJsInputFileSystem } = require('enhanced-resolve')
 
 const DEFAULT_OPTIONS = {
   rootContext: process.cwd(),
@@ -14,7 +14,7 @@ const DEFAULT_OPTIONS = {
   },
 }
 
-export default function(options) {
+module.exports = function(options) {
   defaultsDeep(options, DEFAULT_OPTIONS)
 
   const resolver = options.resolver || ResolverFactory.createResolver(options.resolverOptions)
