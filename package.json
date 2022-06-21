@@ -1,8 +1,8 @@
 {
   "name": "rollup-plugin-enhanced-resolve",
   "version": "0.1.2",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -11,9 +11,9 @@
     "resolve"
   ],
   "scripts": {
-    "prepare": "npm run build",
-    "build": "swc src -d dist && tsc --declaration --emitDeclarationOnly",
-    "dev": "swc src -d dist -w"
+    "build": "tsc --declaration --emitDeclarationOnly && swc src -d dist",
+    "dev": "swc src -d dist",
+    "prepare": "npm run build"
   },
   "dependencies": {
     "defu": "^6.0.0",
