@@ -1,15 +1,31 @@
 {
   "name": "rollup-plugin-enhanced-resolve",
   "version": "0.1.2",
-  "main": "src",
-  "author": "Jason <jason.darusu@gmail.com>",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "swc src -d dist && tsc --declaration --emitDeclarationOnly",
+    "dev": "swc src -d dist -w"
+  },
   "keywords": [
     "rollup-plugin",
     "resolve"
   ],
   "dependencies": {
-    "enhanced-resolve": "^4.1.0",
-    "lodash.defaultsdeep": "^4.6.0",
-    "rollup-pluginutils": "^2.3.0"
+    "defu": "^6.0.0",
+    "enhanced-resolve": "^5.9.3"
+  },
+  "devDependencies": {
+    "@swc/cli": "^0.1.57",
+    "@swc/core": "^1.2.204",
+    "@typescript-eslint/eslint-plugin": "^5.29.0",
+    "@typescript-eslint/parser": "^5.29.0",
+    "eslint": "^8.18.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "rollup": "^2.75.7",
+    "typescript": "^4.7.4"
   }
 }
