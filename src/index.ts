@@ -62,15 +62,15 @@ export default function enhancedResolvePlugin(
         importee,
       };
 
-      if (!options.shouldResolve?.(ctx)) {
+      if (options.shouldResolve && !options.shouldResolve(ctx)) {
         return undefined;
       }
 
       return new Promise<string | undefined>((resolve) => {
         resolver.resolve(
           options.getContext?.(ctx) || {},
-          importee,
           context,
+          importee,
           options.getResolveContext?.(ctx) || {},
           (error, filepath) => {
             if (error) {
